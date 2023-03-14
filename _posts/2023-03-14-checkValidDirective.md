@@ -6,7 +6,7 @@ title: "[webserv] Parser class - checkValidDirective method"
 
 ---
 
-# checkValidDirective method from Paser class
+# checkValidDirective method from Parser class
 
 "it is to check if the current token type is DIRECTIVE."
 
