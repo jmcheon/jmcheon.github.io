@@ -78,7 +78,7 @@ std::pair<bool, Directive>	Parser::expectSimpleDirective(std::string config_path
 
 
 
-#### if statement
+#### if statement from the code snippet
 
 ```c++
 if (directive_pair.first == true) // it is a directive token
@@ -121,7 +121,7 @@ if (directive_pair.first == true) // it is a directive token
 
 
 
-#### else if statement
+#### else if statement from the code snippet
 
 ```c++
 else if (directive_pair.first == false) // it's not a directive token nor a valid directive token
