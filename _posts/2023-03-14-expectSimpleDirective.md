@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "[webserv]:config Parser class - expectSimpleDirective method"
+title: "[webserv] Parser class - expectSimpleDirective method"
 
 
 ---
