@@ -5,7 +5,7 @@ title: "[webserv] Parser class - expectSimpleDirective method"
 
 ---
 
-# expectSimpleDirective method from Paser class
+# expectSimpleDirective method from Parser class
 
 "it is to check if there are any simple directives in a block directive and to parse them."
 
