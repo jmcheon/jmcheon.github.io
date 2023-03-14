@@ -24,21 +24,21 @@ title: "[webserv]:config Parser class - checkValidDirective method"
 ```c++
 std::pair<bool, Directive>	Parser::checkValidDirective()
 {
-	std::pair<bool, Token> 						token_pair = expectToken(DIRECTIVE);
-	std::map<std::string, Directive>::iterator 	found_directive;
+  std::pair<bool, Token>                      token_pair = expectToken(DIRECTIVE);
+  std::map<std::string, Directive>::iterator  found_directive;
 
-    if (!token_pair.first) // it's not a directive token
-	{
-		return (std::make_pair(false, directives_.begin()->second)); 
-	}
-	found_directive = directives_.find(token_pair.second.text);
-	// check if the directive token is valid
-	if (found_directive == directives_.end())
-	{
-		--current_token_;
-		return (std::make_pair(false, directives_.begin()->second)); 
-	}
-	return (std::make_pair(true, found_directive->second)); 
+  if (!token_pair.first) // it's not a directive token
+  {
+    return (std::make_pair(false, directives_.begin()->second)); 
+  }
+  found_directive = directives_.find(token_pair.second.text);
+  // check if the directive token is valid
+  if (found_directive == directives_.end())
+  {
+    --current_token_;
+    return (std::make_pair(false, directives_.begin()->second)); 
+  }
+  return (std::make_pair(true, found_directive->second)); 
 }
 ```
 
