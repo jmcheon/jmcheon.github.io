@@ -12,7 +12,7 @@ title: "[webserv] Parser class - checkValidParameterNumber method"
 | :--------: | :-------------------------: | :------------------: | :----------------------------------------------------------: |
 |   return   | std::pair<bool, Directive>  |                      |                                                              |
 | parameters |         std::string         |     config_path      |           config path for printing error messages            |
-|            | std::pair<bool, Directive>& |    directive_pair    |            a reference to the pair of directives             |
+|            | std::pair<bool, Directive>& |    directive_pair    |          a reference to a pair of bool, directive            |
 | variables  |   std::pair\<bool, Token>   | parameter_token_pair | if the current token type is PARAMETER then bool is true and the second value of the pair refers to the token<br />otherwise, it's false and second value is unusable |
 
 
