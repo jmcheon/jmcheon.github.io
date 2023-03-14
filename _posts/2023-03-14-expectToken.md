@@ -7,7 +7,7 @@ title: "[webserv] Parser class - expectToken method"
 
 # expectToken method from Parser class
 
-"it is to check if the current token has a valid number of parameters. it works for only simple directives."
+"it is to check the current token type and text."
 
 |            |         `type`         |    `name`    |                        `description`                         |
 | :--------: | :--------------------: | :----------: | :----------------------------------------------------------: |
