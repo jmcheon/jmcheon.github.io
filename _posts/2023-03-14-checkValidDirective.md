@@ -1,6 +1,6 @@
 ---
 layout: single
-title: "[webserv]:config Parser class - checkValidDirective method"
+title: "[webserv] Parser class - checkValidDirective method"
 
 
 
