@@ -5,7 +5,7 @@ title: "[webserv] Parser class - parseContextBody method"
 
 # parseContextBody method from Parser class
 
-"it to parse context body(http, server, location)."
+"it is to parse context body(http, server, location)."
 
 |            |                  `type`                   |        `name`         |                `description`                 |
 | :--------: | :---------------------------------------: | :-------------------: | :------------------------------------------: |
