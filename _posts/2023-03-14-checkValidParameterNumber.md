@@ -6,7 +6,7 @@ title: "[webserv] Parser class - checkValidParameterNumber method"
 
 # checkValidParameterNumber method from Parser class
 
-"it is to check if the current token has a valid number of parameters. it works for only simple directives."
+"it is to check if the current directive being parsed has a valid number of parameters. it works for only simple directives."
 
 |            |           `type`            |        `name`        |                        `description`                         |
 | :--------: | :-------------------------: | :------------------: | :----------------------------------------------------------: |
@@ -139,4 +139,4 @@ return (std::make_pair(true, directive_pair.second));
 
 [line 1 ~ 7] after finishing setting all parameters of the directive, if it has another parameter, it prints an error message.
 
-[line 8 ~ 14] it verifies if the current line ends with `;` 
+[line 8 ~ 14] it verifies if the current line ends with `;`. 
