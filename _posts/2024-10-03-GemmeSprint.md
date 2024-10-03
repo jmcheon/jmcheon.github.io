@@ -6,7 +6,7 @@ title: "[MLB2024] - Gemma Sprint"
 # Gemma Sprint Overview
 
 As the final project of the Google Machine Learning Bootcamp 2024, Gemma Sprint leverages the Gemma LLM (Large Language Model).
-This is the first Gemma Sprint organized by Google for the Developers Machine Learning Bootcamp, with the primary goal of building fine-tuning the Gemma LLM model.
+This is the first Gemma Sprint organized by Google for the Developers Machine Learning Bootcamp, with the primary goal of fine-tuning the Gemma LLM model and uploading it to Hugging Face Hub.
 
 ## Challenges in Project Execution
 
@@ -118,9 +118,9 @@ The dataset I initialiy had was insufficient for fine-tuning, and due to its hig
 
 So, I performed the following steps:
 
-- Transforming the dataset into text format that LLM can understand.
+- Collecting additional external data (e.g., Depmap data) to complement the existing dataset and  transforming the dataset into text format that LLM can easily understand. [Colab - depmap data](https://colab.research.google.com/drive/15hzj7VQtIqETbiKUy7ejOtLfrxAPwu5Q#scrollTo=b3vpmJ9Z7VK8)
 
-- Collecting additional external data (e.g., Depmap data) to complement the existing dataset. This external data was preprocessed to ensure it conformed to the required format for the model.
+- This external data was preprocessed to ensure it conformed to the required format for the model. [Colab - dataset mapping](https://colab.research.google.com/drive/1ZhTkWjcAmQbQinMj19r1-hxQ6HBHCyNm#scrollTo=eVRmp4GS4li9)
 
 - After transforming and preprocessing the datasets, I uploaded them to Hugging Face Hub
 
@@ -250,6 +250,7 @@ tokenizer.push_to_hub("jmcheon/mutation_cancer_classification")
 - [효율 최강 파인튜닝 솔루션 Unsloth (ft. Continued Pre-Training) (kr)](https://devocean.sk.com/blog/techBoardDetail.do?ID=166285&boardType=techBlog)
 - [LoRA 개념을 쉽게 설명해드립니다 (생성형 AI, LLM, 딥러닝) (kr)](https://www.youtube.com/watch?v=0lf3CUlUQtA&list=LL&index=2)
 - [depmap data (en)](https://depmap.org/portal/data_page/?tab=overview)
+- [oncotree (en)](https://oncotree.mskcc.org/#/home)
 
 # Remaining Tasks
 - app
