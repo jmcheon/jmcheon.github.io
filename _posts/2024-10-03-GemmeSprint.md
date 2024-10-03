@@ -6,7 +6,7 @@ title: "[MLB2024] - Gemma Sprint"
 # Gemma Sprint Overview
 
 As the final project of the Google Machine Learning Bootcamp 2024, Gemma Sprint leverages the Gemma LLM (Large Language Model).
-This is the first Gemma Sprint organized by Google for the Developers Machine Learning Bootcamp, with the primary goal of building LLM products and applications through fine-tuning the Gemma LLM model.
+This is the first Gemma Sprint organized by Google for the Developers Machine Learning Bootcamp, with the primary goal of building fine-tuning the Gemma LLM model.
 
 ## Challenges in Project Execution
 
@@ -16,14 +16,14 @@ I discovered that even if I have a solid idea and the techniques to fine-tune an
 
 | Idea | Technique | Data |
 | ---- | --------- | ---- |
-| x    | x         | x    |
-| x    | x         | o    |
-| x    | o         | x    |
-| x    | o         | o    |
-| o    | x         | x    |
-| o    | x         | o    |
-| o    | o         | x    |
-| o    | o         | o    |
+| X    | X         | X    |
+| X    | X         | O    |
+| X    | O         | X    |
+| X    | O         | O    |
+| O    | X         | X    |
+| O    | X         | O    |
+| O    | O         | X    |
+| O    | O         | O    |
 
 
 
@@ -63,7 +63,7 @@ I narrowed down to 3 cases each with specified use cases and benefits under the 
 |Legal |- Document review and analysis<br/>- Contract Generation<br/>- Legal Research Assistance|- Save time on tedious tasks<br/>- Improve accuracy in legal documentation<br/>- Easy and quickly to find relevant case law or statutes|
 | Medicine| - Patient data analysis<br/>- Medical disease prediction<br/>- Chatbot assistance for patient inqueries|- Provide quick access to medical information<br/>- Improve patient engagement through chatbot<br/>- Support clinical decision-making with data-driven insights|
 | Commerce |- Customer service automation<br/>- Product recommendation system<br/>- Market trend analysis|- Chatbot interacting with customers<br/>- Personlized shopping experience<br/>- Analyze customer behavior for maketing strategies|
-| Publilc & Academic Sector |- Question-answering<br/>- Citizen engagement platforms: finding Korean Restaurants in Paris<br/>- Automated report generation|- Facilitate citizen inquiries<br/>- streamline govermental process<br/>- Foster better communication between the goverment and the public|
+| Publilc & Academic Sector |- Question-answering<br/>- Citizen engagement platforms: finding Korean Restaurants in Paris<br/>- Automated report generation|- Facilitate citizen inquiries<br/>- streamline writing process<br/>- Foster better communication between with users|
 
 
 By focusing on these fields, I explored innovative solutions that not only utilize the capabilities of Gemma LLM but also address the real-world challenges.
@@ -97,6 +97,7 @@ Format
 }
 ```
 - Hugging Face datasets: Input-output mapping
+
 ```json
 {
 	"text":""
@@ -113,13 +114,15 @@ Given the complexity and the vast amount of data associated with cancer mutation
 
 ## Part1 - Preparing Custom Dataset
 
-The dataset I initialiy had was insufficient for fine-tuning, and due to its high dimensionality, it presented challenges in precessing
+The dataset I initialiy had was insufficient for fine-tuning, and due to its high dimensionality, it presented challenges in precessing.
 
-- I transformed the dataset into text format that LLM can understand.
+So, I performed the following steps:
 
-- I also collected additional external data to complement the existing dataset. This external data was preprocessed to ensure it conformed to the required format for the model.
+- Transforming the dataset into text format that LLM can understand.
 
-- after transforming and preprocessing the datasets, I uploaded them to Hugging Face Hub
+- Collecting additional external data (e.g., Depmap data) to complement the existing dataset. This external data was preprocessed to ensure it conformed to the required format for the model.
+
+- After transforming and preprocessing the datasets, I uploaded them to Hugging Face Hub
 
 ## Part2 - Fine-tune Gemma Model
 
@@ -146,7 +149,7 @@ model, tokenizer = FastLanguageModel.from_pretrained(
 )
 ```
 
-The fine-tuning process has been done in `Colab` with `one GPU T4 15G`, with this constraint, I leveraged `RoLA` technique to reduce the training time and computational resources.
+The fine-tuning process has been done in `Colab` with `one 15G of GPU T4`, with this constraint, I leveraged `RoLA` technique to reduce the training time and computational resources.
 
 ```python
 model = FastLanguageModel.get_peft_model(
@@ -164,7 +167,7 @@ model = FastLanguageModel.get_peft_model(
 )
 ```
 
-I ranged the `max_steps` parameter, for epoch, to check the training process and continued fine-tuning with using the same model.
+I ranged the `max_steps` parameter, which is for epoch, to check the training process and continued fine-tuning using the same model.
 
 ```python
 from transformers import TrainingArguments
@@ -227,7 +230,7 @@ save_method = (
 )
 ```
 
-I had a issue with the uploaded tokenizer when loading it, so I had to upload it separately.
+I had an issue with the uploaded tokenizer when loading it, so I had to upload it separately.
 
 ```python
 model.push_to_hub_merged(
@@ -246,13 +249,14 @@ tokenizer.push_to_hub("jmcheon/mutation_cancer_classification")
 # References
 - [효율 최강 파인튜닝 솔루션 Unsloth (ft. Continued Pre-Training) (kr)](https://devocean.sk.com/blog/techBoardDetail.do?ID=166285&boardType=techBlog)
 - [LoRA 개념을 쉽게 설명해드립니다 (생성형 AI, LLM, 딥러닝) (kr)](https://www.youtube.com/watch?v=0lf3CUlUQtA&list=LL&index=2)
+- [depmap data (en)](https://depmap.org/portal/data_page/?tab=overview)
 
 # Remaining Tasks
 - app
-- continous training
+- continuous training
 - collecting more datasets
 - apply other techniques
-- other ideas to applications
+- other ideas into applications
 
 
 [#GemmaSprint](https://www.google.com/search?q=google+gemma+sprint&sca_esv=1c128b9a547ab16f&sxsrf=ADLYWIIHQBhBOdUb74DUUiPmZb1IF1IIfw%3A1727989963338&ei=ywj_ZpCyFKXhkdUPxp_E6QY&ved=0ahUKEwjQw8KfkPOIAxWlcKQEHcYPMW0Q4dUDCA8&uact=5&oq=google+gemma+sprint&gs_lp=Egxnd3Mtd2l6LXNlcnAaAhgCIhNnb29nbGUgZ2VtbWEgc3ByaW50MgUQIRigATIFECEYoAFIlh1QrAdYgRxwA3gBkAEAmAGrAqABnRGqAQYxMi4zLjS4AQPIAQD4AQGYAhagAvoSwgIKEAAYsAMY1gQYR8ICBBAjGCfCAgoQIxiABBgnGIoFwgIOEAAYgAQYkQIYigUYiwPCAhMQLhiABBhDGKgDGIoFGJoDGIsDwgIKEC4YgAQYQxiKBcICEBAuGIAEGNEDGEMYxwEYigXCAgoQABiABBhDGIoFwgINEAAYgAQYQxiKBRiLA8ICEBAAGIAEGEMYyQMYigUYiwPCAhkQLhiABBjRAxjSAxhDGMcBGKgDGIoFGIsDwgILEAAYgAQYkQIYigXCAgUQABiABMICBxAAGIAEGArCAgoQABiABBgUGIcCwgIGEAAYFhgewgIIEAAYFhgKGB7CAgsQABiABBiGAxiKBcICCBAAGIAEGKIEwgIEECEYFcICBRAhGJ8FwgIHECEYoAEYCpgDAIgGAZAGCJIHCDE0LjQuMi4yoAfjogE&sclient=gws-wiz-serp) [#Gemma](https://ai.google.dev/gemma)
